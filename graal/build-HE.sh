@@ -26,6 +26,8 @@ native-image \
   --no-fallback \
   --allow-incomplete-classpath \
   -jar /src/saxon.jar \
+  -cp /src/tagchowder.core.jar \
+  -cp /src/slf4j-jdk14.jar \
   -jar /target/build/main.jar \
   -H:Name=/target/bin/saxon \
   -H:+ReportExceptionStackTraces \

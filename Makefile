@@ -19,16 +19,16 @@ build-pe:
 tag: tag-base tag-ee tag-he tag-he-graal tag-pe
 
 tag-base:
-	@docker tag saxon:base klakegg/saxon:dev-base
+	@docker tag saxon:base thiagotognoli/saxon:dev-base
 
 tag-ee:
-	@docker tag saxon:ee klakegg/saxon:dev-ee
+	@docker tag saxon:ee thiagotognoli/saxon:dev-ee
 
 tag-he:
-	@docker tag saxon:he klakegg/saxon:dev-he
+	@docker tag saxon:he thiagotognoli/saxon:dev-he
 
 tag-he-graal:
-	@docker tag saxon:he-graal klakegg/saxon:dev-he-graal
+	@docker tag saxon:he-graal thiagotognoli/saxon:dev-he-graal
 
 tag-pe:
-	@docker tag saxon:pe klakegg/saxon:dev-pe
+	@docker tag saxon:pe thiagotognoli/saxon:dev-pe

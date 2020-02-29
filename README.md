@@ -16,3 +16,10 @@ Example:
 `docker run --rm -it -v $(pwd):/src klakegg/saxon xslt -s:input.xml -xsl:transformer.xslt -o:output.xml`
 
 Please see the Saxon documentation for information about [XSLT commands](http://www.saxonica.com/documentation/#!using-xsl/commandline) and [XQuery commands](http://www.saxonica.com/documentation/#!using-xquery/commandline).
+
+# Compile local docker
+```bash
+docker build -f Dockerfile  -t saxon:base .
+docker build -f Dockerfile-he -t saxon .
+docker build -f Dockerfile-he-graal -t saxon:he-graal .
+```
