@@ -19,7 +19,6 @@ Please see the Saxon documentation for information about [XSLT commands](http://
 
 # Compile local docker
 ```bash
-docker build -f Dockerfile  -t saxon:base .
-docker build -f Dockerfile-he -t saxon .
-docker build -f Dockerfile-he-graal -t saxon:he-graal .
+docker build -f Dockerfile  -t saxon:base . && docker build -f Dockerfile-he -t saxon . && docker build -f Dockerfile-he-graal -t saxon:he-graal .
+docker run --rm -it -v $(pwd):/src saxon:he-graal cp /bin/saxon /src/.
 ```

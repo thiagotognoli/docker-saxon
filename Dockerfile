@@ -20,10 +20,13 @@ RUN apk add --no-cache unzip \
 ADD \
   https://github.com/thiagotognoli/tagchowder/releases/download/2.0.17/tagchowder.core.jar \
   /tagchowder.core.jar
-
 ADD \
   https://repo1.maven.org/maven2/org/slf4j/slf4j-jdk14/1.7.12/slf4j-jdk14-1.7.12.jar \
   /slf4j-jdk14.jar
+
+ADD \
+  https://github.com/thiagotognoli/tagsoup/releases/download/1.2.1/tagsoup-1.2.1.jar \
+  /tagsoup.jar
 
 
 FROM klakegg/graalvm-native AS he-graalvm
@@ -34,6 +37,7 @@ COPY --from=saxon /saxon.jar /src/saxon.jar
 COPY --from=saxon /tagchowder.core.jar /src/tagchowder.core.jar
 COPY --from=saxon /slf4j-jdk14.jar /src/slf4j-jdk14.jar
 
+COPY --from=saxon /tagsoup.jar /src/tagsoup.jar
 
 
 RUN sh /src/build-HE.sh
@@ -53,6 +57,9 @@ COPY --from=he-graalvm /target/bin/saxon /files/he-graal/bin/saxon
 
 COPY --from=saxon /tagchowder.core.jar /files/he/usr/share/java/saxon/tagchowder.core.jar
 COPY --from=saxon /slf4j-jdk14.jar /files/he/usr/share/java/saxon/slf4j-jdk14.jar
+
+COPY --from=saxon /tagchowder.core.jar /files/he/usr/share/java/saxon/tagsoup.jar
+
 
 RUN chmod a+x /files/*/bin/* \
  && chmod a+r -R /files \
