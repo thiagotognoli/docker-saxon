@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cp="$SAXON_HOME/saxon.jar:$SAXON_HOME/*"
+cp="$SAXON_HOME/main.jar"
 
 java ${JAVA_OPTS:-} -classpath "$cp" "$@"

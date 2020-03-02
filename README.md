@@ -19,6 +19,11 @@ Please see the Saxon documentation for information about [XSLT commands](http://
 
 # Compile local docker
 ```bash
-docker build -f Dockerfile  -t saxon:base . && docker build -f Dockerfile-he -t saxon . && docker build -f Dockerfile-he-graal -t saxon:he-graal .
-docker run --rm -it -v $(pwd):/src saxon:he-graal cp /bin/saxon /src/.
+docker build -f Dockerfile  -t saxon:base . \
+&& docker build -f Dockerfile-he -t saxon . \
+&& docker build -f Dockerfile-he-graal -t saxon:he-graal . \
+&& docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/src saxon:he-graal cp /bin/saxon /src/bin/. \
+&& chmod a+x bin/saxon \
+&& docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/src saxon cp /usr/share/java/saxon/main.jar /usr/share/java/saxon/saxon.jar /src/bin/.
+
 ```

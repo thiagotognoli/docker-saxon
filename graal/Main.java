@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import net.sf.saxon.Query;
 import net.sf.saxon.Transform;
+import com.yahoo.tagchowder.*;
+import org.ccil.cowan.tagsoup.*;
 
 class Main {
 
@@ -28,4 +30,9 @@ class Main {
   private static void transform(String... args) {
     Transform.main(args);
   }
+
+  private static void userPasers() {
+    org.ccil.cowan.tagsoup.Parser p1 = new org.ccil.cowan.tagsoup.Parser(); 
+    com.yahoo.tagchowder.Parser p2 = new com.yahoo.tagchowder.Parser();
+  }  
 }
